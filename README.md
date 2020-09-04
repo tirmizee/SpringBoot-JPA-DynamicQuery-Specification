@@ -8,7 +8,7 @@ This is an easy-to-use example of searching sorting and paging with Spring Data 
 - Department
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92202239-bf529c00-eea8-11ea-9083-7eedd7c29722.JPG" >
+  <img src="https://user-images.githubusercontent.com/15135199/92202239-bf529c00-eea8-11ea-9083-7eedd7c29722.JPG" width="700">
 </p>
 
 ### Configuration properties
@@ -45,33 +45,47 @@ change properties to your configuration
 	logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
 	logging.level.com.zaxxer.hikari=TRACE
 	
-#### Example 1
+#### Example 
 
-- Request example
+- Example searching list of Employee.
 
 	GET method 
 	URl : http://localhost:8000/api/employee/list?deptNo=&firstName=&lastName=&deptName
-	
-- Response example
-	
-		[
-			{
-			    "id": null,
-			    "firstName": null,
-			    "lastName": null,
-			    "birthDate": null,
-			    "departmentNo": null,
-			    "departmentName": null
-			}
-		]
 
-- Demo 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15135199/92250138-4af21a00-eef5-11ea-8055-920b9ae00f5c.gif" width="800">
 </p>
 
 
+
+- Example searching, sorting and paging for GET method.
+
+	GET method 
+	URl : http://localhost:8000/api/employee/page?page=0&sort=desc&sortField=deptName&firstName=Yos&lastName&deptNo=D002&deptName=Ar&size=20
+	
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15135199/92253213-6ced9b80-eef9-11ea-9e2b-a6426f27c9ac.gif" width="800">
+</p>
+
+
+- Example searching, sorting and paging for POST method.
+
+	POST method 
+	URl : http://localhost:8000/api/employee/page
+	Request body :
+	{
+	    "page" : 0,
+	    "size" : "10",
+	    "sort" : "asc",
+	    "sortField" : "id",
+	    "search" : {
+	        "firstName" : null,
+	        "lastName" : null,
+	        "deptNo" : null,
+	        "deptName" : null
+	    }
+	}
 ### Dependencies
 
 - Spring Data JPA
