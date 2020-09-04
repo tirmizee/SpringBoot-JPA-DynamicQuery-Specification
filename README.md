@@ -104,12 +104,17 @@ change properties to your configuration
   <img src="https://user-images.githubusercontent.com/15135199/92257823-0ae46480-ef00-11ea-98ba-81c6b7ca2d27.JPG" width="800">
 </p>
 
-if you want to use paging and sorting extends SearchPageSpecification instead.
+  if you want to use paging and sorting extends SearchPageSpecification instead.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/15135199/92260002-9b6f7480-ef01-11ea-87ef-12583bc417ee.JPG" width="800">
 </p>
 
+  SearchPageSpecification provide getPageable function for create Pagable.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15135199/92261597-e12d3c80-ef03-11ea-9c39-eb68dc145d63.JPG" width="800">
+</p>
 
 
 
