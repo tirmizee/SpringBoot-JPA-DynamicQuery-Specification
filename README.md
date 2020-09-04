@@ -98,10 +98,10 @@ change properties to your configuration
 
 		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
 
-2. Create custom specification class and extends SearchSpecification and override toPredicate method. There is a newly added Search parameter.
+2. Create custom specification class and extends SearchSpecification and override toPredicate method.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92257823-0ae46480-ef00-11ea-98ba-81c6b7ca2d27.JPG" width="800">
+  <img src="https://user-images.githubusercontent.com/15135199/92262526-7c72e180-ef05-11ea-8ca4-96b7f8bfa013.JPG" width="800">
 </p>
 
   if you want to use paging and sorting extends SearchPageSpecification instead.
@@ -117,8 +117,8 @@ change properties to your configuration
 </p>
 
 
-
 ### Dependencies
 
 - Spring Data JPA
 - Faker (generate fake data )
+
