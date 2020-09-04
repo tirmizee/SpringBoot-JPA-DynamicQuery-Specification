@@ -54,16 +54,16 @@ change properties to your configuration
 	
 - Response example
 	
-	[
-		{
-		    "id": null,
-		    "firstName": null,
-		    "lastName": null,
-		    "birthDate": null,
-		    "departmentNo": null,
-		    "departmentName": null
-		}
-	]
+		[
+			{
+			    "id": null,
+			    "firstName": null,
+			    "lastName": null,
+			    "birthDate": null,
+			    "departmentNo": null,
+			    "departmentName": null
+			}
+		]
 
 - Demo 
 
