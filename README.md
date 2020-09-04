@@ -122,3 +122,7 @@ change properties to your configuration
 - Spring Data JPA
 - Faker (generate fake data )
 
+### Demo
+
+	mvn package
+	java -jar SpringBoot-Custom-JPA-Speficication-0.0.1.jar
