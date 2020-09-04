@@ -96,7 +96,7 @@ change properties to your configuration
 
 1. Extend JpaSpecificationExecutor in your repository
 
-	public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
+		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
 
 2. Create custom specification class and extends SearchSpecification and override toPredicate method. There is a newly added Search parameter.
 
