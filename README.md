@@ -1,6 +1,6 @@
 # SpringBoot-Custom-JPA-Specification
 
-this is sample of using Spring Data JPA Specification 
+This is an easy-to-use example of searching sorting and paging with Spring Data JPA specification.
 
 ### Sample tables
 
