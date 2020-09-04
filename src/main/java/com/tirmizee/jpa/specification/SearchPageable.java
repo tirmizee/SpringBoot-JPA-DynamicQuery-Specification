@@ -8,7 +8,7 @@ import lombok.Data;
  *
  */
 @Data
-public class SearchPageable {
+public abstract class SearchPageable {
 	 	
 	 private Integer page = 0;  // default page is 0
 	 private Integer size = 10; // default size is 10
