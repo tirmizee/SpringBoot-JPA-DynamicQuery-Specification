@@ -8,7 +8,7 @@ This is an easy-to-use example of searching sorting and paging with Spring Data 
 - Department
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92202239-bf529c00-eea8-11ea-9083-7eedd7c29722.JPG" width="500">
+  <img src="https://user-images.githubusercontent.com/15135199/92202239-bf529c00-eea8-11ea-9083-7eedd7c29722.JPG" >
 </p>
 
 ### Configuration properties
@@ -45,6 +45,33 @@ change properties to your configuration
 	logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
 	logging.level.com.zaxxer.hikari=TRACE
 	
+#### Example 1
+
+- Request example
+
+	GET method 
+	URl : http://localhost:8000/api/employee/list?deptNo=&firstName=&lastName=&deptName
+	
+- Response example
+	
+	[
+    {
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "birthDate": null,
+        "departmentNo": null,
+        "departmentName": null
+    }
+	]
+
+- Demo 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15135199/92250138-4af21a00-eef5-11ea-8055-920b9ae00f5c.gif" width="800">
+</p>
+
+
 ### Dependencies
 
 - Spring Data JPA
