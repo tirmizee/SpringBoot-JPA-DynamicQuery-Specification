@@ -134,19 +134,6 @@ change properties to your configuration
 				....
 			}
 
-			@Override
-			protected String sortProperty(String sortField) {
-
-				if (sortField == null) return "id"; // default if sortField be null
-
-				switch (sortField) {
-					case "deptNo" : return "department.deptNo";
-					case "deptName" : return "department.deptName";
-					default : return sortField;
-				}
-
-			}
-
 		}
 
 
