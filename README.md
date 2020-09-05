@@ -100,9 +100,22 @@ change properties to your configuration
 
 2. Create custom specification class and extends SearchSpecification and override toPredicate method.
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92262526-7c72e180-ef05-11ea-8ca4-96b7f8bfa013.JPG" width="800">
-</p>
+	public class ExampleSpecification1 extends SearchSpecification<ExampleSearch1, Employee> {
+
+		private static final long serialVersionUID = 1L;
+
+		public ExampleSpecification1(ExampleSearch1 search) {
+			super(search);
+		}
+	
+		@Override
+		public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, ExampleSearch1 searchBody) {
+			
+			.....
+		}
+	
+	}
+
 
   if you want to use paging and sorting extends SearchPageSpecification instead.
 
