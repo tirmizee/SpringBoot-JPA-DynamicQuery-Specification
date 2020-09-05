@@ -48,11 +48,11 @@ change properties to your configuration
 
 ### How to implement
 
-1. Extend JpaSpecificationExecutor in your repository
+1.Extend JpaSpecificationExecutor in your repository
 
 		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
 
-2. Create custom specification class and extends SearchSpecification and override toPredicate method.
+2.Create custom specification class and extends SearchSpecification and override toPredicate method.
 
 		public class ExampleSpecification1 extends SearchSpecification<ExampleSearch1, Employee> {
 
