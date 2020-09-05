@@ -45,52 +45,6 @@ change properties to your configuration
 	logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
 	logging.level.com.zaxxer.hikari=TRACE
 	
-#### Example 
-
-- Example searching list of Employee.
-
-		GET method 
-		URl : http://localhost:8000/api/employee/list?deptNo=&firstName=&lastName=&deptName
-
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92250138-4af21a00-eef5-11ea-8055-920b9ae00f5c.gif" width="800">
-</p>
-
-
-
-- Example searching, sorting and paging for GET method.
-
-		GET method 
-		URl : http://localhost:8000/api/employee/page?page=0&sort=desc&sortField=deptName&firstName=Yos&lastName&deptNo=D002&deptName=Ar&size=20
-	
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92253213-6ced9b80-eef9-11ea-9e2b-a6426f27c9ac.gif" width="800">
-</p>
-
-
-- Example searching, sorting and paging for POST method.
-
-		POST method 
-		URl : http://localhost:8000/api/employee/page
-		Request body :
-		{
-		    "page" : 0,
-		    "size" : "10",
-		    "sort" : "asc",
-		    "sortField" : "id",
-		    "search" : {
-			"firstName" : null,
-			"lastName" : null,
-			"deptNo" : null,
-			"deptName" : null
-		    }
-		}
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92255946-387bde80-eefd-11ea-8a21-843b84d69961.gif" width="800">
-</p>
-
 
 ### How to implement
 
@@ -139,17 +93,76 @@ change properties to your configuration
 
   SearchPageSpecification provide getPageable function for create Pagable.
 
+		@GetMapping(path = "/employee/page")
+		public Page<EmployeeDetailDTO> exampleTwo(ExampleSearch2 searchPage){
+
+			ExampleSpecification2 specificationTwo = new ExampleSpecification2(searchPage);
+
+			Page<Employee> page = employeeRepository.findAll(specificationTwo, specificationTwo.getPageable());
+
+			// transform Employee to EmployeeDetailDTO
+			Function<Employee, EmployeeDetailDTO> converter = source -> {
+				EmployeeDetailDTO target = new EmployeeDetailDTO();
+				target.setId(source.getId());
+				target.setFirstName(source.getFirstName());
+				target.setLastName(source.getLastName());
+				target.setDepartmentNo(source.getDeptNo());
+				target.setDepartmentName(source.getDepartment().getDeptName());
+				return target;
+			};
+
+			return page.map(converter);
+		}
+
+#### Demo
+
+- Example searching list of Employee.
+
+		GET method 
+		URl : http://localhost:8000/api/employee/list?deptNo=&firstName=&lastName=&deptName
+
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92261597-e12d3c80-ef03-11ea-9c39-eb68dc145d63.JPG" width="800">
+  <img src="https://user-images.githubusercontent.com/15135199/92250138-4af21a00-eef5-11ea-8055-920b9ae00f5c.gif" width="800">
 </p>
+
+
+
+- Example searching, sorting and paging for GET method.
+
+		GET method 
+		URl : http://localhost:8000/api/employee/page?page=0&sort=desc&sortField=deptName&firstName=Yos&lastName&deptNo=D002&deptName=Ar&size=20
+	
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15135199/92253213-6ced9b80-eef9-11ea-9e2b-a6426f27c9ac.gif" width="800">
+</p>
+
+
+- Example searching, sorting and paging for POST method.
+
+		POST method 
+		URl : http://localhost:8000/api/employee/page
+		Request body :
+		{
+		    "page" : 0,
+		    "size" : "10",
+		    "sort" : "asc",
+		    "sortField" : "id",
+		    "search" : {
+			"firstName" : null,
+			"lastName" : null,
+			"deptNo" : null,
+			"deptName" : null
+		    }
+		}
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/15135199/92255946-387bde80-eefd-11ea-8a21-843b84d69961.gif" width="800">
+</p>
+
 
 
 ### Dependencies
 
 - Spring Data JPA
 - Faker (generate fake data )
-
-### Demo
-
-	mvn package
-	java -jar SpringBoot-Custom-JPA-Speficication-0.0.1.jar
