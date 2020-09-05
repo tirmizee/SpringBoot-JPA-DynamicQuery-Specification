@@ -119,9 +119,36 @@ change properties to your configuration
 
   if you want to use paging and sorting extends SearchPageSpecification instead.
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/15135199/92260002-9b6f7480-ef01-11ea-87ef-12583bc417ee.JPG" width="800">
-</p>
+		public class ExampleSpecification2 extends SearchPageSpecification<ExampleSearch2, Employee> {
+
+			private static final long serialVersionUID = 1L;
+
+			public ExampleSpecification2(ExampleSearch2 serachPage) {
+				super(serachPage);
+			}
+
+			@Override
+			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder,
+					ExampleSearch2 searchBody) {
+
+				....
+			}
+
+			@Override
+			protected String sortProperty(String sortField) {
+
+				if (sortField == null) return "id"; // default if sortField be null
+
+				switch (sortField) {
+					case "deptNo" : return "department.deptNo";
+					case "deptName" : return "department.deptName";
+					default : return sortField;
+				}
+
+			}
+
+		}
+
 
   SearchPageSpecification provide getPageable function for create Pagable.
 
