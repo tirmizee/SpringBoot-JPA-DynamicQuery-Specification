@@ -71,7 +71,7 @@ change properties to your configuration
 		}
 
 
-  if you want to use paging extends SearchPageSpecification instead.
+  if you want to use Paging, extends SearchPageSpecification instead.
 
 		public class ExampleSpecification2 extends SearchPageSpecification<ExampleSearch2, Employee> {
 
