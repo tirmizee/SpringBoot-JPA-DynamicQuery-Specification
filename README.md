@@ -63,7 +63,7 @@ change properties to your configuration
 			}
 
 			@Override
-			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, <span style="color:orange;">ExampleSearch1 searchBody</span>) {
+			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, ExampleSearch1 searchBody) {
 
 				.....
 			}
