@@ -91,7 +91,7 @@ change properties to your configuration
 		}
 
 
-  SearchPageSpecification provide getPageable function for create Pagable.
+  SearchPageSpecification provides a getPageable function for create Pagable.
 
 		@GetMapping(path = "/employee/page")
 		public Page<EmployeeDetailDTO> exampleTwo(ExampleSearch2 searchPage){
