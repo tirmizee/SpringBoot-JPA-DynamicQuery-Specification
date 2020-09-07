@@ -1,4 +1,4 @@
-# SpringBoot-Custom-JPA-Specification
+# SpringBoot-Custom-JPA-Specification-Example
 
 This is an easy-to-use example of searching sorting and paging with Spring Data JPA specification.
 
@@ -52,7 +52,7 @@ change properties to your configuration
 
 		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
 
-2.Create custom specification class and extends SearchSpecification and override toPredicate method.
+2.Create custom Specification class and extends SearchSpecification and override toPredicate method.
 
 		public class ExampleSpecification1 extends SearchSpecification<ExampleSearch1, Employee> {
 
