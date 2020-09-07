@@ -8,7 +8,7 @@ import org.springframework.data.domain.Sort;
 /**
  * @author Pratya Yeekhaday
  * 
- * @param <B> Object type of SearchPageable
+ * @param <S> Object type of SearchPageable
  * @param <T> Entity
  */
 public abstract class SearchPageSpecification<S extends SearchPageable, T> extends SearchSpecification<S,T> {
@@ -44,11 +44,9 @@ public abstract class SearchPageSpecification<S extends SearchPageable, T> exten
 	 * Override this method. if you want to customize Pageable.
 	 */
 	public Pageable getPageable() {
-		
 		SearchPageable searchPageable = super.getSearch();
-		
-		Integer page = getSearch().getPage();
-		Integer size = getSearch().getSize();
+		Integer page = searchPageable.getPage();
+		Integer size = searchPageable.getSize();
 		String sort = StringUtils.defaultString(searchPageable.getSort(), DEFUALT_SORT_ASC);
 		String preSortField = this.sortProperty(searchPageable.getSortField());
 		String sortField = StringUtils.defaultString(preSortField, "id");

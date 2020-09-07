@@ -27,29 +27,29 @@ public class ExampleSpecification2 extends SearchPageSpecification<ExampleSearch
 
 	@Override
 	public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder,
-			ExampleSearch2 searchBody) {
+			ExampleSearch2 search) {
 		
 		Join<Employee, Department> department = root.join("department", JoinType.INNER);
 		
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		
-		if (StringUtils.isNotEmpty(searchBody.getFirstName())) {
-			Predicate likeFirstName = criteriaBuilder.like(root.get("firstName"), "%" + searchBody.getFirstName() + "%" );
+		if (StringUtils.isNotEmpty(search.getFirstName())) {
+			Predicate likeFirstName = criteriaBuilder.like(root.get("firstName"), "%" + search.getFirstName() + "%" );
 			predicates.add(likeFirstName);
 		}
 		
-		if (StringUtils.isNotEmpty(searchBody.getLastName())) {
-			Predicate likeLastName = criteriaBuilder.like(root.get("lastName"), "%" + searchBody.getLastName() + "%" );
+		if (StringUtils.isNotEmpty(search.getLastName())) {
+			Predicate likeLastName = criteriaBuilder.like(root.get("lastName"), "%" + search.getLastName() + "%" );
 			predicates.add(likeLastName);
 		}
 		
-		if (StringUtils.isNotEmpty(searchBody.getDeptNo())) {
-			Predicate eqDeptNo = criteriaBuilder.equal(department.get("deptNo"), searchBody.getDeptNo());
+		if (StringUtils.isNotEmpty(search.getDeptNo())) {
+			Predicate eqDeptNo = criteriaBuilder.equal(department.get("deptNo"), search.getDeptNo());
 			predicates.add(eqDeptNo);
 		}
 		
-		if (StringUtils.isNotEmpty(searchBody.getDeptName())) {
-			Predicate likeDeptName = criteriaBuilder.like(department.get("deptName"),"%" + searchBody.getDeptName() + "%" );
+		if (StringUtils.isNotEmpty(search.getDeptName())) {
+			Predicate likeDeptName = criteriaBuilder.like(department.get("deptName"),"%" + search.getDeptName() + "%" );
 			predicates.add(likeDeptName);
 		}
 		

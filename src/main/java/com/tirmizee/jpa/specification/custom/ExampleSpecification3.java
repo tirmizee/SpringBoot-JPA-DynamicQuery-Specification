@@ -27,31 +27,31 @@ public class ExampleSpecification3 extends SearchPageSpecification<SearchCriteri
 
 	@Override
 	public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder,
-			SearchCriteria<ExampleSearch3> searchBody) {
+			SearchCriteria<ExampleSearch3> search) {
 
 		Join<Employee, Department> department = root.join("department", JoinType.INNER);
 		
-		ExampleSearch3 search = searchBody.getSearch();
+		ExampleSearch3 searchRequest = search.getSearch();
 		
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		
-		if (StringUtils.isNotEmpty(search.getFirstName())) {
-			Predicate likeFirstName = criteriaBuilder.like(root.get("firstName"), "%" + search.getFirstName() + "%" );
+		if (StringUtils.isNotEmpty(searchRequest.getFirstName())) {
+			Predicate likeFirstName = criteriaBuilder.like(root.get("firstName"), "%" + searchRequest.getFirstName() + "%" );
 			predicates.add(likeFirstName);
 		}
 		
-		if (StringUtils.isNotEmpty(search.getLastName())) {
-			Predicate likeLastName = criteriaBuilder.like(root.get("lastName"), "%" + search.getLastName() + "%" );
+		if (StringUtils.isNotEmpty(searchRequest.getLastName())) {
+			Predicate likeLastName = criteriaBuilder.like(root.get("lastName"), "%" + searchRequest.getLastName() + "%" );
 			predicates.add(likeLastName);
 		}
 		
-		if (StringUtils.isNotEmpty(search.getDeptNo())) {
-			Predicate eqDeptNo = criteriaBuilder.equal(department.get("deptNo"), search.getDeptNo());
+		if (StringUtils.isNotEmpty(searchRequest.getDeptNo())) {
+			Predicate eqDeptNo = criteriaBuilder.equal(department.get("deptNo"), searchRequest.getDeptNo());
 			predicates.add(eqDeptNo);
 		}
 		
-		if (StringUtils.isNotEmpty(search.getDeptName())) {
-			Predicate likeDeptName = criteriaBuilder.like(department.get("deptName"),"%" + search.getDeptName() + "%" );
+		if (StringUtils.isNotEmpty(searchRequest.getDeptName())) {
+			Predicate likeDeptName = criteriaBuilder.like(department.get("deptName"),"%" + searchRequest.getDeptName() + "%" );
 			predicates.add(likeDeptName);
 		}
 		

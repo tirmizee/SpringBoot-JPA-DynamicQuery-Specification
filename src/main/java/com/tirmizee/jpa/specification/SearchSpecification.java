@@ -12,7 +12,7 @@ import lombok.Data;
 /**
  * @author Pratya Yeekhaday
  * 
- * @param <B> Object type of search
+ * @param <S> Object type of Search
  * @param <T> Entity
  */
 
@@ -27,11 +27,11 @@ public abstract class SearchSpecification<S,T> implements Specification<T> {
 		this.search = search;
 	}
 	
-	public abstract Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, S searchBody);
+	public abstract Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, S search);
 	
 	@Override
 	public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-		return this.toPredicate(root, query, criteriaBuilder, search);
+		return this.toPredicate(root, query, criteriaBuilder, this.search);
 	}
 	
 }
