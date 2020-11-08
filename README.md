@@ -53,72 +53,83 @@ change properties to your configuration
 
 ```java
 
-		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
+	public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
 
 
 ```
 
 2.Create custom Specification class, extends SearchSpecification and override toPredicate method.
 
-		public class ExampleSpecification1 extends SearchSpecification<ExampleSearch1, Employee> {
+```java
 
-			private static final long serialVersionUID = 1L;
+	public class ExampleSpecification1 extends SearchSpecification<ExampleSearch1, Employee> {
 
-			public ExampleSpecification1(ExampleSearch1 search) {
-				super(search);
-			}
+		private static final long serialVersionUID = 1L;
 
-			@Override
-			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, ExampleSearch1 searchBody) {
-
-				.....
-			}
-	
+		public ExampleSpecification1(ExampleSearch1 search) {
+			super(search);
 		}
 
+		@Override
+		public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder, ExampleSearch1 searchBody) {
+
+			.....
+		}
+
+	}
+
+```
 
   if you want to use Paging, extends SearchPageSpecification instead.
 
-		public class ExampleSpecification2 extends SearchPageSpecification<ExampleSearch2, Employee> {
+```java
 
-			private static final long serialVersionUID = 1L;
+	public class ExampleSpecification2 extends SearchPageSpecification<ExampleSearch2, Employee> {
 
-			public ExampleSpecification2(ExampleSearch2 serachPage) {
-				super(serachPage);
-			}
+		private static final long serialVersionUID = 1L;
 
-			@Override
-			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder,
-					ExampleSearch2 searchBody) {
-
-				....
-			}
-
+		public ExampleSpecification2(ExampleSearch2 serachPage) {
+			super(serachPage);
 		}
 
+		@Override
+		public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder,
+				ExampleSearch2 searchBody) {
+
+			....
+		}
+
+	}
+
+
+```
 
   SearchPageSpecification provides a getPageable function for create Pagable.
 
-		@GetMapping(path = "/employee/page")
-		public Page<EmployeeDetailDTO> exampleTwo(ExampleSearch2 searchPage){
+```java
 
-			ExampleSpecification2 specificationTwo = new ExampleSpecification2(searchPage);
+	@GetMapping(path = "/employee/page")
+	public Page<EmployeeDetailDTO> exampleTwo(ExampleSearch2 searchPage){
 
-			Page<Employee> page = employeeRepository.findAll(specificationTwo, specificationTwo.getPageable());
+		ExampleSpecification2 specificationTwo = new ExampleSpecification2(searchPage);
 
-			// transform Employee to EmployeeDetailDTO
-			Function<Employee, EmployeeDetailDTO> converter = source -> {
-				EmployeeDetailDTO target = new EmployeeDetailDTO();
-				target.setId(source.getId());
-				target.setFirstName(source.getFirstName());
-				target.setLastName(source.getLastName());
-				target.setDepartmentNo(source.getDeptNo());
-				target.setDepartmentName(source.getDepartment().getDeptName());
-				return target;
-			};
+		Page<Employee> page = employeeRepository.findAll(specificationTwo, specificationTwo.getPageable());
 
-			return page.map(converter);
-		}
+		// transform Employee to EmployeeDetailDTO
+		Function<Employee, EmployeeDetailDTO> converter = source -> {
+			EmployeeDetailDTO target = new EmployeeDetailDTO();
+			target.setId(source.getId());
+			target.setFirstName(source.getFirstName());
+			target.setLastName(source.getLastName());
+			target.setDepartmentNo(source.getDeptNo());
+			target.setDepartmentName(source.getDepartment().getDeptName());
+			return target;
+		};
+
+		return page.map(converter);
+	}
+
+```
 
 #### Demo
 
