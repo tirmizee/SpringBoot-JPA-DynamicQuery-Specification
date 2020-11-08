@@ -50,7 +50,13 @@ change properties to your configuration
 
 1.Extend JpaSpecificationExecutor in your repository
 
+
+```java
+
 		public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {}
+
+
+```
 
 2.Create custom Specification class, extends SearchSpecification and override toPredicate method.
 
