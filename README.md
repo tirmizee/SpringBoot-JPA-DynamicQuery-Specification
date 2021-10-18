@@ -1,4 +1,4 @@
-# SpringBoot-Custom-JPA-Specification-Example
+# SpringBoot-JPA-DynamicQuery-Specification
 
 This is an easy-to-use example of searching, sorting and paging with Spring Data JPA specification.
 
