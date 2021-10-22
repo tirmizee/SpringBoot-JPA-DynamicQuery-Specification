@@ -80,7 +80,7 @@ Step 2. Create Specification class, extends SearchSpecification and override toP
 
 ```
 
-  if you want to using Paging, extends SearchPageSpecification instead.
+  if you want to using Paging, extends SearchPageSpecification instead. SearchPageSpecification provides a getPageable function for create a Pagable.
 
 ```java
 
@@ -103,8 +103,6 @@ Step 2. Create Specification class, extends SearchSpecification and override toP
 
 
 ```
-
-  SearchPageSpecification provides a getPageable function for create a Pagable.
 
 Step 3. Apply 
 
