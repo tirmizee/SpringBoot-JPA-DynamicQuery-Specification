@@ -48,7 +48,7 @@ change properties to your configuration
 
 ### How to implement
 
-1.Extend JpaSpecificationExecutor in your repository
+Step 1. Create Repository interface, extends JpaRepository and JpaSpecificationExecutor.
 
 
 ```java
@@ -58,7 +58,7 @@ change properties to your configuration
 
 ```
 
-2.Create custom Specification class, extends SearchSpecification and override toPredicate method.
+Step 2. Create Specification class, extends SearchSpecification and override toPredicate method for implement search logic.
 
 ```java
 
@@ -80,7 +80,7 @@ change properties to your configuration
 
 ```
 
-  if you want to use Paging, extends SearchPageSpecification instead.
+  if you want to using Paging, extends SearchPageSpecification instead.
 
 ```java
 
@@ -104,7 +104,9 @@ change properties to your configuration
 
 ```
 
-  SearchPageSpecification provides a getPageable function for create Pagable.
+  SearchPageSpecification provides a getPageable function for create a Pagable.
+
+Step 3. Apply 
 
 ```java
 
