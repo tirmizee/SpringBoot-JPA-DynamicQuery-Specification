@@ -17,35 +17,35 @@ change properties to your configuration
 
 ```yaml
 
-	## SERVER PORT
-	server.port=8000
-	
-	## CONNECTION 
-	spring.datasource.url=jdbc:mysql://localhost:3306/demo?useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-	spring.datasource.username=root
-	spring.datasource.password=root
-	spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-	
-	## CONNECTION POOL
-	spring.datasource.hikari.connection-timeout=600000
-	spring.datasource.hikari.minimum-idle=2
-	spring.datasource.hikari.maximum-pool-size=5
-	spring.datasource.hikari.idle-timeout=3000000
-	spring.datasource.hikari.max-lifetime=3000000
-	spring.datasource.hikari.auto-commit=true
-	spring.datasource.hikari.pool-name=MYSQL-DEMO-POOL
-	
-	## JPA HIBERNATE
-	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-	spring.jpa.properties.hibernate.hbm2ddl.auto=update
-	spring.jpa.properties.hibernate.show_sql=true
-	spring.jpa.properties.hibernate.use_sql_comments=true
-	spring.jpa.properties.hibernate.format_sql=true
-	spring.jpa.properties.hibernate.type=trace
-	
-	## LOGGING
-	logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
-	logging.level.com.zaxxer.hikari=TRACE
+## SERVER PORT
+server.port=8000
+
+## CONNECTION 
+spring.datasource.url=jdbc:mysql://localhost:3306/demo?useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+## CONNECTION POOL
+spring.datasource.hikari.connection-timeout=600000
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.maximum-pool-size=5
+spring.datasource.hikari.idle-timeout=3000000
+spring.datasource.hikari.max-lifetime=3000000
+spring.datasource.hikari.auto-commit=true
+spring.datasource.hikari.pool-name=MYSQL-DEMO-POOL
+
+## JPA HIBERNATE
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.properties.hibernate.hbm2ddl.auto=update
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.use_sql_comments=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.type=trace
+
+## LOGGING
+logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
+logging.level.com.zaxxer.hikari=TRACE
 
 ```
 
