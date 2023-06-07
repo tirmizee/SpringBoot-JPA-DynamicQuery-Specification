@@ -15,6 +15,8 @@ This is an easy-to-use example of searching, sorting and paging with Spring Data
 
 change properties to your configuration
 
+```yaml
+
 	## SERVER PORT
 	server.port=8000
 	
@@ -44,7 +46,8 @@ change properties to your configuration
 	## LOGGING
 	logging.level.com.zaxxer.hikari.HikariConfig=DEBUG
 	logging.level.com.zaxxer.hikari=TRACE
-	
+
+```
 
 ### How to implement
 
