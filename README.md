@@ -49,6 +49,48 @@ logging.level.com.zaxxer.hikari=TRACE
 
 ```
 
+yaml version
+
+```yaml
+
+server:
+  port: '8000'
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        hbm2ddl:
+          auto: update
+        use_sql_comments: 'true'
+        format_sql: 'true'
+        show_sql: 'true'
+        type: trace
+  datasource:
+    hikari:
+      connection-timeout: '600000'
+      pool-name: MYSQL-DEMO-POOL
+      idle-timeout: '3000000'
+      maximum-pool-size: '5'
+      max-lifetime: '3000000'
+      auto-commit: 'true'
+      minimum-idle: '2'
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/demo?useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: DEBUG
+          nodeValue: TRACE
+
+
+
+```
+
 ### How to implement
 
 Step 1. Create Repository interface then extends JpaRepository and JpaSpecificationExecutor.
