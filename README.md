@@ -11,6 +11,11 @@ This is an easy-to-use example of searching, sorting and paging with Spring Data
   <img src="https://user-images.githubusercontent.com/15135199/92202239-bf529c00-eea8-11ea-9083-7eedd7c29722.JPG" width="700">
 </p>
 
+### Dependencies
+
+- Spring Data JPA
+- Faker (generate fake data )
+
 ### Configuration properties
 
 Modify these properties to match your configuration
@@ -224,7 +229,4 @@ Step 3: Apply it in a Service or Controller Class.
 
 
 
-### Dependencies
 
-- Spring Data JPA
-- Faker (generate fake data )
