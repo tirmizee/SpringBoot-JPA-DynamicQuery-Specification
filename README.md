@@ -91,9 +91,9 @@ logging:
 
 ```
 
-### How to implement
+### How to Implement
 
-Step 1. Create Repository interface then extends JpaRepository and JpaSpecificationExecutor.
+Step 1: Create a Repository Interface and Extend JpaRepository and JpaSpecificationExecutor.
 
 
 ```java
@@ -103,7 +103,7 @@ Step 1. Create Repository interface then extends JpaRepository and JpaSpecificat
 
 ```
 
-Step 2. Create Specification class then extends SearchSpecification and override toPredicate method for implements custom search logic.
+Step 2: Create a Specification Class, Extend SearchSpecification, and Override the toPredicate Method to Implement Custom Search Logic.
 
 ```java
 
@@ -125,7 +125,7 @@ Step 2. Create Specification class then extends SearchSpecification and override
 
 ```
 
-  if you want to use Paging ,extends SearchPageSpecification instead. SearchPageSpecification provides a getPageable function for create a Pagable.
+If you want to use paging, extend SearchPageSpecification instead. SearchPageSpecification provides a getPageable function to create a Pageable.
 
 ```java
 
@@ -149,7 +149,7 @@ Step 2. Create Specification class then extends SearchSpecification and override
 
 ```
 
-Step 3. Apply it in Service or Controller class.
+Step 3: Apply it in a Service or Controller Class.
 
 ```java
 
