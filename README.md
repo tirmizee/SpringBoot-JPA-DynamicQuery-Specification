@@ -13,7 +13,7 @@ This is an easy-to-use example of searching, sorting and paging with Spring Data
 
 ### Configuration properties
 
-change properties to your configuration
+Modify these properties to match your configuration
 
 ```yaml
 
